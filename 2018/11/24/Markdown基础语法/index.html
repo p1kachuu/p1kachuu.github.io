@@ -7,14 +7,19 @@
   
   <title>Markdown基础语法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="标题 在行首加入1-6个#，表示1-6级标题，例如： #这是一级标题##这是二级标题###这是三级标题注意：#后有一个空格 文本样式 加粗：在需要加粗的文字前后各加两个星号或者_底线符号，前后符号要匹配且符号和字之间不能有空格。例如:\*Hello**或__Hello__的效果是Hello 斜体在需要倾斜的文字前后各加一个星号或者_底线符号。例如：\Hello*或_Hello_的效果是Hello">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Markdown基础语法">
 <meta property="og:url" content="http://yoursite.com/2018/11/24/Markdown基础语法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="标题 在行首加入1-6个#，表示1-6级标题，例如： #这是一级标题##这是二级标题###这是三级标题注意：#后有一个空格 文本样式 加粗：在需要加粗的文字前后各加两个星号或者_底线符号，前后符号要匹配且符号和字之间不能有空格。例如:\*Hello**或__Hello__的效果是Hello 斜体在需要倾斜的文字前后各加一个星号或者_底线符号。例如：\Hello*或_Hello_的效果是Hello">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-24T15:52:42.541Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/24/Markdown基础语法/jordan-mcgee-1175109-unsplash.jpg">
+<meta property="og:updated_time" content="2018-11-25T05:26:53.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown基础语法">
+<meta name="twitter:description" content="标题 在行首加入1-6个#，表示1-6级标题，例如： #这是一级标题##这是二级标题###这是三级标题注意：#后有一个空格 文本样式 加粗：在需要加粗的文字前后各加两个星号或者_底线符号，前后符号要匹配且符号和字之间不能有空格。例如:\*Hello**或__Hello__的效果是Hello 斜体在需要倾斜的文字前后各加一个星号或者_底线符号。例如：\Hello*或_Hello_的效果是Hello">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/24/Markdown基础语法/jordan-mcgee-1175109-unsplash.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,11 +88,117 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><hr>
+<p>在行首加入1-6个#，表示1-6级标题，例如：</p>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="#这是一级标题"></a>#这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="##这是二级标题"></a>##这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="###这是三级标题"></a>###这是三级标题</h3><p>注意：#后有一个空格</p>
+<h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><hr>
+<h3 id="加粗："><a href="#加粗：" class="headerlink" title="加粗："></a>加粗：</h3><p>在需要加粗的文字前后各加两个<em>星号或者_底线符号，前后符号要匹配且符号和字之间不能有空格。例如:<br>\</em>*Hello**或__Hello__的效果是<strong>Hello</strong></p>
+<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><p>在需要倾斜的文字前后各加一个<em>星号或者_底线符号。例如：<br>\</em>Hello*或_Hello_的效果是<em>Hello</em></p>
+<h3 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h3><p>前后各加三个<em>星号或者_底线符号。例如：<br>\</em>**Hello***效果是<strong><em>Hello</em></strong></p>
+<h3 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h3><p>前后各加一个及以上的“`”反引号（Esc键下方）。例如：<br>`Hello`的效果是<code>Hello</code></p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>前后各加两个~波浪号（Esc键下方）。例如：<br>~~Hello~~的效果是<del>Hello</del></p>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>在单独的一个文本行内用三个及以上的<em>星号、_底线符号来建立分割线（符号间可以有空格）。例如：<br>\</em>**<br>效果都是：</p>
+<hr>
+<h3 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h3><hr>
+<ol>
+<li>一个Markdown段落由一到多个连续的文本行组成，段落前后要有一个以上的空行（若某一行只包含空格和制表符也被视为空行）。</li>
+<li>换行：在一个文本行末键入两个及以上的空格或制表符（Tab键）后回车（Enter键）即可换行。另外，由于Markdown兼容部分HTML语法，也可以用<code>&lt;br&gt;</code>来换行。  <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3></li>
+</ol>
+<hr>
+<ol>
+<li>无序列表<br>每个文本行前使用<em>星号、+加号、-减号来标记。例如：<br>\</em> red<br>* yellow<br>* blue<br>效果是：</li>
+</ol>
+<ul>
+<li>red</li>
+<li>yellow</li>
+<li>blue</li>
+</ul>
+<ol start="2">
+<li>有序列表<br>使用阿拉伯数字接着一个英文句点。例如：<br>1. red<br>2. yellow<br>3. blue<br>效果是：</li>
+<li>red</li>
+<li>yellow</li>
+<li>blue<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3></li>
+</ol>
+<hr>
+<ol>
+<li>每个表头或表格单元之间用“|”来隔开。表头下要有-|-|-，有几个表头就有几个“-”减号。</li>
+<li>左对齐：默认左对齐，或在“-”左侧加“:”表示左对齐。</li>
+<li>右对齐：在“-”右侧加“:”表示右对齐。</li>
+<li>居中对齐：在“-”两侧都加“:”表示居中对齐。<br>例如：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>姓名\</th>
+<th>班级\</th>
+<th>学号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张三</td>
+<td>1</td>
+<td>10001</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>2</td>
+<td>10002</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>3</td>
+<td>10003</td>
+</tr>
+</tbody>
+</table>
+<p>效果是：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>班级</th>
+<th>学号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张三</td>
+<td>1</td>
+<td>10001</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>2</td>
+<td>10002</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>3</td>
+<td>10003</td>
+</tr>
+</tbody>
+</table>
+<p>注意：表格前要有空行</p>
+<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><hr>
+<p>引用以&gt;来表示，引用中支持多级引用、标题、列表、代码块、分割线等常规语法。<br>区块引用可以嵌套，只要根据层次加上不同数量的 &gt;，&gt;的个数表示引用的级数。</p>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><hr>
+<ol>
+<li>每行代码前缩进四个空格或一个制表符即可建立代码区块。</li>
+<li>在需要插入的代码区块的前一行及后一行各使用三个“`”反引号。例如：<br>```<br>#include&lt;stdio.h&gt;<br>int main()<br>{<br> printf(“Hello word!”);<br>}<br>```<br>效果是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	printf(&quot;Hello word!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）</p>
+<h3 id="添加超链接"><a href="#添加超链接" class="headerlink" title="添加超链接"></a>添加超链接</h3><hr>
+<p>[链接名称](链接地址)<br>例如：[bleaner’s blog](<a href="https://bleaner.github.io\" target="_blank" rel="noopener">https://bleaner.github.io\</a>)<br>效果是：<br><a href="https://bleaner.github.io" target="_blank" rel="noopener">bleaner’s blog</a></p>
+<h3 id="链接图片"><a href="#链接图片" class="headerlink" title="链接图片"></a>链接图片</h3><hr>
+<p>语法：<br>![图片alt](图片链接 “图片title”)<br>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加。<br>示例：<br>![Alt text](./jordan-mcgee-1175109-unsplash.jpg)</p>
+<p>效果是：<br><img src="./jordan-mcgee-1175109-unsplash.jpg" alt="Alt text"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/Markdown基础语法/" data-id="cjow97lts0000ywtj39otlqkp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/Markdown基础语法/" data-id="cjowgad5i0001l8tjtxsawywo" class="article-share-link">Share</a>
       
       
     </footer>
