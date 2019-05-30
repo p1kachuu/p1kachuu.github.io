@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>bleaner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Bleaner,Bleaner's Blog">
+  
+  <meta name="description" content="###windows环境下搭建网站  ####IIS服务的安装1.打开“控制面板” - “程序” - “启动或关闭Windows功能 IIS配置1.WIN + X  -  “计算机管理”2.新建网站完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者127.0.0.1:81或者输入自己当前网卡的IP地址+端口号81）或者输入目前电脑的I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bleaner">
+<meta property="og:url" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/index.html">
+<meta property="og:site_name" content="bleaner">
+<meta property="og:description" content="###windows环境下搭建网站  ####IIS服务的安装1.打开“控制面板” - “程序” - “启动或关闭Windows功能 IIS配置1.WIN + X  -  “计算机管理”2.新建网站完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者127.0.0.1:81或者输入自己当前网卡的IP地址+端口号81）或者输入目前电脑的I">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889013966.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889387125.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889414696.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889620579.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889685198.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890205394.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890249570.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890386936.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890418634.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890487914.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890502509.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890440915.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558890531222.png">
+<meta property="og:updated_time" content="2019-05-26T17:11:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bleaner">
+<meta name="twitter:description" content="###windows环境下搭建网站  ####IIS服务的安装1.打开“控制面板” - “程序” - “启动或关闭Windows功能 IIS配置1.WIN + X  -  “计算机管理”2.新建网站完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者127.0.0.1:81或者输入自己当前网卡的IP地址+端口号81）或者输入目前电脑的I">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/1558889013966.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Bleaner&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Bleaner&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个没有技术的博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Bleaner" target="_blank" href="//bleaner.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/bleaner">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/bleaner">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-windows环境下搭建网站/windows环境下搭建网站" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>###windows环境下搭建网站</p>
+<hr>
+<p>####IIS服务的安装<br>1.打开“控制面板” - “程序” - “启动或关闭Windows功能<br><img src="./1558889013966.png" alt="Alt text"></p>
+<h4 id="IIS配置"><a href="#IIS配置" class="headerlink" title="IIS配置"></a>IIS配置</h4><p>1.WIN + X  -  “计算机管理”<br>2.新建网站<br><img src="./1558889387125.png" alt="Alt text"><br><img src="./1558889414696.png" alt="Alt text"><br>完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者127.0.0.1:81或者输入自己当前网卡的IP地址+端口号81）<br><img src="./1558889620579.png" alt="Alt text"><br>或者输入目前电脑的IP地址（局域网地址）<br>cmd - ipconfig:<br><img src="./1558889685198.png" alt="Alt text"><br>这样我们就在自己的Windows上搭建了一个网站</p>
+<h4 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h4><p>目前我们电脑开启IIS服务，就相当于一台具有IIS服务的web服务器，我们要保证其他机器能够访问我们的网站，就必须考虑防火墙的问题。<br>防火墙和网络保护 - 高级设置<br><img src="./1558890205394.png" alt="Alt text"><br><img src="./1558890249570.png" alt="Alt text"></p>
+<p>我们可以直接关闭防火墙，但是这是很不安全的措施<br>我们可以通过设置防火墙的出入站规则（ACL），对网站访问权限进行设置<br>入站规则：新建入站规则，选择对端口进行设置，我们可以设置为允许任何对于81端口的请求。<br> 入站规则 - 新建规则 - 端口<br> <img src="./1558890386936.png" alt="Alt text"><br> <img src="./1558890418634.png" alt="Alt text"><br> <img src="./1558890487914.png" alt="Alt text"><br><img src="./1558890502509.png" alt="Alt text"><br> <img src="./1558890440915.png" alt="Alt text"><br>完成<br><img src="./1558890531222.png" alt="Alt text"></p>
+<hr>
+<p>这样在同一局域网下的主机便可以访问我们的网站啦</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年05月27日 01:11</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/" title="">http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="y gao">
+                y gao
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/&title=bleaner&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/&title=bleaner&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=bleaner&url=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/05/27/windows环境下搭建网站/windows环境下搭建网站/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#IIS配置"><span class="post-toc-text">IIS配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#防火墙配置"><span class="post-toc-text">防火墙配置</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/21/diary/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 y gao<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
