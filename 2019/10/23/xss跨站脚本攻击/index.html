@@ -16,16 +16,15 @@
 <meta property="og:site_name" content="bleaner">
 <meta property="og:description" content="xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。从而盗取用户资料、利用用户">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559442781878.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559442902681.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559462193536.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559462330659.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559483706392.png">
-<meta property="og:updated_time" content="2019-10-23T11:02:18.927Z">
+<meta property="og:updated_time" content="2019-11-16T14:18:56.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xss跨站脚本攻击">
 <meta name="twitter:description" content="xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。从而盗取用户资料、利用用户">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559442781878.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/23/xss跨站脚本攻击/1559442902681.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -155,7 +154,7 @@
 <hr>
 <h3 id="3-xss分类"><a href="#3-xss分类" class="headerlink" title="3.xss分类"></a>3.xss分类</h3><p>一般XSS可以分为如下几种常见类型：<br>1.反射性XSS: 经过后端，不经过数据库<br>2.存储型XSS:  经过后端，经过数据库<br>3.DOM型XSS: 不经过后端,DOM—based XSS漏洞是基于文档对象模型Document Objeet Model,DOM)的一种漏洞,dom - xss是通过url传入参数去控制触发的。</p>
 <h4 id="3-1反射型xss"><a href="#3-1反射型xss" class="headerlink" title="3.1反射型xss:"></a>3.1反射型xss:</h4><p>　又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型xss攻击是一次性的，仅对当次的页面访问产生影响。非持久型xss攻击要求用户访问一个被攻击者篡改后的链接，用户访问该链接时，被植入的攻击脚本被用户游览器执行，从而达到攻击目的。</p>
-<h5 id="3-1-1get请求下的xss"><a href="#3-1-1get请求下的xss" class="headerlink" title="3.1.1get请求下的xss"></a>3.1.1get请求下的xss</h5><p>输入内容直接通过URL提交<br><img src="./1559442781878.png" alt="Alt text"><br>1.测试输入特殊字符<br><img src="./1559442902681.png" alt="Alt text"><br>2.查看网页源代码</p>
+<h5 id="3-1-1get请求下的xss"><a href="#3-1-1get请求下的xss" class="headerlink" title="3.1.1get请求下的xss"></a>3.1.1get请求下的xss</h5><p>1.测试输入特殊字符<br><img src="./1559442902681.png" alt="Alt text"><br>2.查看网页源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;p class=&apos;notice&apos;&gt;who is 1111&quot;&quot;&lt;&gt;&apos;&apos;(),idon&apos;t care!&lt;/p&gt;            &lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>3.写payload<br>猜测是该网站是直接将输入的内容显示到who is后边，所以可以直接写javascript脚本<br>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>提交时发现了一点问题<br><img src="./1559462193536.png" alt="Alt text"><br>即已经做了防xss的措施，只不过是在前端完成的，简单修改一下maxlength的值就好啦~<br>输入后浏览器弹出xss对话框，达成预期目标<br><img src="./1559462330659.png" alt="Alt text"><br>攻击时直接发送链接就好了<br><a href="http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit" target="_blank" rel="noopener">http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit</a><br>接收者接收消息显示的时候将会弹出警告窗口</p>
@@ -178,7 +177,7 @@
 <h3 id="4-xss攻击实例-amp-利用"><a href="#4-xss攻击实例-amp-利用" class="headerlink" title="4 xss攻击实例&amp;利用"></a>4 xss攻击实例&amp;利用</h3>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年10月23日 19:02</p>
+        <p>最后更新： 2019年11月16日 22:18</p>
         <p>原始链接： <a class="post-url" href="/2019/10/23/xss跨站脚本攻击/" title="xss跨站脚本攻击">http://yoursite.com/2019/10/23/xss跨站脚本攻击/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -367,10 +366,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Web安全漏洞/">Web安全漏洞</a><a class="category-link" href="/categories/dairy/">dairy</a><a class="category-link" href="/categories/little-skill/">little skill</a>
+            <a class="category-link" href="/categories/Web安全漏洞/">Web安全漏洞</a><a class="category-link" href="/categories/little-skill/">little skill</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Web安全漏洞/" style="font-size: 20px;">Web安全漏洞</a> <a href="/tags/dairy/" style="font-size: 10px;">dairy</a> <a href="/tags/little-skill/" style="font-size: 10px;">little skill</a>
+            <a href="/tags/Web安全漏洞/" style="font-size: 20px;">Web安全漏洞</a> <a href="/tags/little-skill/" style="font-size: 10px;">little skill</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -403,7 +402,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Web安全漏洞/" style="font-size: 20px;">Web安全漏洞</a> <a href="/tags/dairy/" style="font-size: 10px;">dairy</a> <a href="/tags/little-skill/" style="font-size: 10px;">little skill</a>
+            <a href="/tags/Web安全漏洞/" style="font-size: 20px;">Web安全漏洞</a> <a href="/tags/little-skill/" style="font-size: 10px;">little skill</a>
         </div>
     </div>
 </div>
