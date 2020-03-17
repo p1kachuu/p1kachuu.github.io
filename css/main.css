@@ -2034,7 +2034,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c2c4ff;
+  background: #ff2de5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3339,6 +3339,18 @@ ul.breadcrumb li+li:last-child {
 .site-title:hover,
 .post-title:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+  }
+  #footer a {
+    color: #eee;
+  }
 }
 code {
   color: #ff7600;
