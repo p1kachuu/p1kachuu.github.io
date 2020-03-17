@@ -158,11 +158,11 @@
 <meta property="og:url" content="http://bleaner.club/2020/01/22/Docker入门总结/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1937083/202003/1937083-20200311115352641-650196613.png">
-<meta property="og:updated_time" content="2020-03-17T10:38:06.196Z">
+<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png">
+<meta property="og:updated_time" content="2020-03-17T12:05:47.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker入门总结">
-<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1937083/202003/1937083-20200311115352641-650196613.png">
+<meta name="twitter:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png">
 
 
 
@@ -501,7 +501,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-17 18:38:06" itemprop="dateModified" datetime="2020-03-17T18:38:06+08:00">2020-03-17</time>
+                <time title="修改时间：2020-03-17 20:05:47" itemprop="dateModified" datetime="2020-03-17T20:05:47+08:00">2020-03-17</time>
               
             
           </span>
@@ -573,8 +573,8 @@
       
 
       
-        <p></p>
-<h1 id="Docker入门总结"><a href="#Docker入门总结" class="headerlink" title="Docker入门总结"></a>Docker入门总结</h1><h2 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中,然后发布到任何流行的Linux机器或Windows 机器上,也可以实现虚拟化,容器是完全使用沙箱机制,相互之间不会有任何接口。</p>
+        <br><!--# Docker入门总结--><p></p>
+<h2 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中,然后发布到任何流行的Linux机器或Windows 机器上,也可以实现虚拟化,容器是完全使用沙箱机制,相互之间不会有任何接口。</p>
 <h2 id="Docker的特点"><a href="#Docker的特点" class="headerlink" title="Docker的特点"></a>Docker的特点</h2><ul>
 <li>轻量，在一台机器上运行的多个Docker容器可以共享这台机器的操作系统内核；它们能够迅速启动，只需占用很少的计算和内存资源。镜像是通过文件系统层进行构造的，并共享一些公共文件。这样就能尽量降低磁盘用量，并能更快地下载镜像。</li>
 <li>标准，Docker容器基于开放式标准，能够在所有主流Linux版本、Microsoft Windows以及包括VM、裸机服务器和云在内的任何基础设施上运行。</li>
@@ -582,7 +582,7 @@
 </ul>
 <h2 id="和虚拟机的比较"><a href="#和虚拟机的比较" class="headerlink" title="和虚拟机的比较"></a>和虚拟机的比较</h2><p>简单来说： 容器和虚拟机具有相似的资源隔离和分配优势，但功能有所不同，因为容器虚拟化的是操作系统，而不是硬件，因此容器更容易移植，效率也更高。</p>
 <p>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；而容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。</p>
-<p>两者的对比图：<br><img src="https://img2020.cnblogs.com/blog/1937083/202003/1937083-20200311115352641-650196613.png" alt></p>
+<p>两者的对比图：<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png" alt></p>
 <ul>
 <li>容器是一个应用层抽象，用于将代码和依赖资源打包在一起。 多个容器可以在同一台机器上运行，共享操作系统内核，但各自作为独立的进程在用户空间中运行 。与虚拟机相比， 容器占用的空间较少（容器镜像大小通常只有几十兆），瞬间就能完成启动 。</li>
 <li>虚拟机（VM）是一个物理硬件层抽象，用于将一台服务器变成多台服务器。 管理程序允许多个VM在一台机器上运行。每个VM都包含一整套操作系统、一个或多个应用、必要的二进制文件和库资源，因此占用大量空间。而且VM启动也十分缓慢 。</li>
@@ -712,8 +712,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/22/pwn入门学习(一）—— 环境搭建/" rel="prev" title="pwn入门学习(一）—— 环境搭建">
-                 <i class="fa fa-chevron-left"></i> pwn入门学习(一）—— 环境搭建
+              <a href="/2020/01/22/PE文件结构(一)/" rel="prev" title="PE文件结构(一)">
+                 <i class="fa fa-chevron-left"></i> PE文件结构(一)
               </a>
             
           </div>
@@ -918,7 +918,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker入门总结"><span class="nav-number">1.</span> <span class="nav-text">Docker入门总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Docker是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的特点"><span class="nav-number">1.2.</span> <span class="nav-text">Docker的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和虚拟机的比较"><span class="nav-number">1.3.</span> <span class="nav-text">和虚拟机的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的基本概念"><span class="nav-number">1.4.</span> <span class="nav-text">Docker的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的安装"><span class="nav-number">1.5.</span> <span class="nav-text">Docker的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker常用命令"><span class="nav-number">1.6.</span> <span class="nav-text">Docker常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.7.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker是什么？"><span class="nav-number">1.</span> <span class="nav-text">Docker是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的特点"><span class="nav-number">2.</span> <span class="nav-text">Docker的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和虚拟机的比较"><span class="nav-number">3.</span> <span class="nav-text">和虚拟机的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的基本概念"><span class="nav-number">4.</span> <span class="nav-text">Docker的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker的安装"><span class="nav-number">5.</span> <span class="nav-text">Docker的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker常用命令"><span class="nav-number">6.</span> <span class="nav-text">Docker常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
