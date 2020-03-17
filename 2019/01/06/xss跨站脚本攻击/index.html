@@ -152,23 +152,20 @@
 
 
 
-  <meta name="description" content="xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。从而盗取用户资料、利用用户">
-<meta name="keywords" content="web安全">
+  <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss跨站脚本攻击">
 <meta property="og:url" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
-<meta property="og:description" content="xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。从而盗取用户资料、利用用户">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/1559442902681.png">
-<meta property="og:image" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/1559462193536.png">
-<meta property="og:image" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/1559462330659.png">
-<meta property="og:image" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/1559483706392.png">
-<meta property="og:updated_time" content="2020-03-16T14:37:47.296Z">
+<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss1.png">
+<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss2.png">
+<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss3.png">
+<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss4.png">
+<meta property="og:updated_time" content="2020-03-17T10:10:08.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xss跨站脚本攻击">
-<meta name="twitter:description" content="xss跨站脚本攻击1.简介跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。从而盗取用户资料、利用用户">
-<meta name="twitter:image" content="http://bleaner.club/2019/01/06/xss跨站脚本攻击/1559442902681.png">
+<meta name="twitter:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss1.png">
 
 
 
@@ -507,7 +504,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-16 22:37:47" itemprop="dateModified" datetime="2020-03-16T22:37:47+08:00">2020-03-16</time>
+                <time title="修改时间：2020-03-17 18:10:08" itemprop="dateModified" datetime="2020-03-17T18:10:08+08:00">2020-03-17</time>
               
             
           </span>
@@ -579,17 +576,18 @@
       
 
       
-        <h2 id="xss跨站脚本攻击"><a href="#xss跨站脚本攻击" class="headerlink" title="xss跨站脚本攻击"></a>xss跨站脚本攻击</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。<br>XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？<br>XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。<br>从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。<br>XSS攻击的危害包括：<br>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
+        <p></p>
+<h2 id="xss跨站脚本攻击"><a href="#xss跨站脚本攻击" class="headerlink" title="xss跨站脚本攻击"></a>xss跨站脚本攻击</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。<br>XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？<br>XSS是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。<br>从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。<br>XSS攻击的危害包括：<br>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
 <hr>
 <h3 id="2-原因解析"><a href="#2-原因解析" class="headerlink" title="2.原因解析"></a>2.原因解析</h3><p><strong>主要原因</strong>：过于信任客户端提交的数据！<br><strong>解决办法</strong>：不信任任何客户端提交的数据，只要是客户端提交的数据就应该先进行相应的过滤处理然后方可进行下一步的操作。<br><strong>进一步分析细节：</strong>　　<br>客户端提交的数据本来就是应用所需要的，但是恶意攻击者利用网站对客户端提交数据的信任，在数据中插入一些符号以及javascript代码，那么这些数据将会成为应用代码中的一部分了。那么攻击者就可以肆无忌惮地展开攻击啦。　　<br>因此我们绝不可以信任任何客户端提交的数据！！！</p>
 <hr>
 <h3 id="3-xss分类"><a href="#3-xss分类" class="headerlink" title="3.xss分类"></a>3.xss分类</h3><p>一般XSS可以分为如下几种常见类型：<br>1.反射性XSS: 经过后端，不经过数据库<br>2.存储型XSS:  经过后端，经过数据库<br>3.DOM型XSS: 不经过后端,DOM—based XSS漏洞是基于文档对象模型Document Objeet Model,DOM)的一种漏洞,dom - xss是通过url传入参数去控制触发的。</p>
 <h4 id="3-1反射型xss"><a href="#3-1反射型xss" class="headerlink" title="3.1反射型xss:"></a>3.1反射型xss:</h4><p>　又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型xss攻击是一次性的，仅对当次的页面访问产生影响。非持久型xss攻击要求用户访问一个被攻击者篡改后的链接，用户访问该链接时，被植入的攻击脚本被用户游览器执行，从而达到攻击目的。</p>
-<h5 id="3-1-1get请求下的xss"><a href="#3-1-1get请求下的xss" class="headerlink" title="3.1.1get请求下的xss"></a>3.1.1get请求下的xss</h5><p>1.测试输入特殊字符<br><img src="./1559442902681.png" alt="Alt text"><br>2.查看网页源代码</p>
+<h5 id="3-1-1get请求下的xss"><a href="#3-1-1get请求下的xss" class="headerlink" title="3.1.1get请求下的xss"></a>3.1.1get请求下的xss</h5><p>1.测试输入特殊字符<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss1.png"><br>2.查看网页源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;p class=&apos;notice&apos;&gt;who is 1111&quot;&quot;&lt;&gt;&apos;&apos;(),idon&apos;t care!&lt;/p&gt;            &lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>3.写payload<br>猜测是该网站是直接将输入的内容显示到who is后边，所以可以直接写javascript脚本<br>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>提交时发现了一点问题<br><img src="./1559462193536.png" alt="Alt text"><br>即已经做了防xss的措施，只不过是在前端完成的，简单修改一下maxlength的值就好啦~<br>输入后浏览器弹出xss对话框，达成预期目标<br><img src="./1559462330659.png" alt="Alt text"><br>攻击时直接发送链接就好了<br><a href="http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit" target="_blank" rel="noopener">http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit</a><br>接收者接收消息显示的时候将会弹出警告窗口</p>
-<h5 id="3-1-2post请求的xss"><a href="#3-1-2post请求的xss" class="headerlink" title="3.1.2post请求的xss"></a>3.1.2post请求的xss</h5><p>输入内容通过post表单提交<br>burp抓包分析<br><img src="./1559483706392.png" alt="Alt text"><br>URL中没有要提交的信息，所以不能直接通过发送链接攻击。</p>
+<p>提交时发现了一点问题<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss2.png"><br>即已经做了防xss的措施，只不过是在前端完成的，简单修改一下maxlength的值就好啦~<br>输入后浏览器弹出xss对话框，达成预期目标<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss3.png"><br><a href="http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit" target="_blank" rel="noopener">http://127.0.0.1:801/pikachu-master/vul/xss/xss_reflected_get.php?message=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E&amp;submit=submit</a><br>接收者接收消息显示的时候将会弹出警告窗口</p>
+<h5 id="3-1-2post请求的xss"><a href="#3-1-2post请求的xss" class="headerlink" title="3.1.2post请求的xss"></a>3.1.2post请求的xss</h5><p>输入内容通过post表单提交<br>burp抓包分析<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/xss4.png"><br>URL中没有要提交的信息，所以不能直接通过发送链接攻击。</p>
 <hr>
 <p><strong>反射型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 浏览器。</strong></p>
 <h3 id="3-2存储型xss"><a href="#3-2存储型xss" class="headerlink" title="3.2存储型xss"></a>3.2存储型xss</h3><p>后台源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$link=connect();</span><br><span class="line">$html=&apos;&apos;;</span><br><span class="line">if(array_key_exists(&quot;message&quot;,$_POST) &amp;&amp; $_POST[&apos;message&apos;]!=null)&#123;</span><br><span class="line">    $message=escape($link, $_POST[&apos;message&apos;]);</span><br><span class="line">    $query=&quot;insert into message(content,time) values(&apos;$message&apos;,now())&quot;;</span><br><span class="line">    $result=execute($link, $query);</span><br><span class="line">    if(mysqli_affected_rows($link)!=1)&#123;</span><br><span class="line">        $html.=&quot;&lt;p&gt;数据库出现异常，提交失败！&lt;/p&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -761,7 +759,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -776,9 +774,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -793,9 +789,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
