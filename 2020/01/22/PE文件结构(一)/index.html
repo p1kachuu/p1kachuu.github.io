@@ -158,13 +158,13 @@
 <meta property="og:url" content="http://bleaner.club/2020/01/22/PE文件结构(一)/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe1.png">
-<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe2.png">
-<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe3.png">
-<meta property="og:updated_time" content="2020-03-17T12:08:38.074Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe3.png">
+<meta property="og:updated_time" content="2020-08-25T05:47:00.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PE文件结构(一)">
-<meta name="twitter:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe1.png">
 
 
 
@@ -503,7 +503,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-17 20:08:38" itemprop="dateModified" datetime="2020-03-17T20:08:38+08:00">2020-03-17</time>
+                <time title="修改时间：2020-08-25 13:47:00" itemprop="dateModified" datetime="2020-08-25T13:47:00+08:00">2020-08-25</time>
               
             
           </span>
@@ -578,15 +578,15 @@
         <p></p>
 <h2 id="0x01-基本概念"><a href="#0x01-基本概念" class="headerlink" title="0x01 基本概念"></a>0x01 基本概念</h2><p>PE（Portable Execute）文件是Windows下可执行文件的总称，常见的有DLL，EXE，OCX，SYS等，事实上，一个文件是否是PE文件与其扩展名无关，PE文件可以是任何扩展名。PE文件是指32位可执行文件，也称PE32。64位可执行文件称为PE+或PE32+，是PE(PE32)的一种扩展形式(注意不是PE64)</p>
 <p>PE文件的结构一般来说如下图所示：从起始位置开始依次是DOS头，NT头，节表以及具体的节。</p>
-<p><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe1.png" alt></p>
-<h3 id="DOS头"><a href="#DOS头" class="headerlink" title="DOS头"></a>DOS头</h3><p>DOS头是用来兼容MS-DOS操作系统的，64字节，共四行，目的是当这个文件在MS-DOS上运行时提示一段文字，大部分情况下是：This program cannot be run in DOS mode.还有一个目的，就是指明NT头在文件中的位置。<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe2.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe1.png" alt></p>
+<h3 id="DOS头"><a href="#DOS头" class="headerlink" title="DOS头"></a>DOS头</h3><p>DOS头是用来兼容MS-DOS操作系统的，64字节，共四行，目的是当这个文件在MS-DOS上运行时提示一段文字，大部分情况下是：This program cannot be run in DOS mode.还有一个目的，就是指明NT头在文件中的位置。<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe2.png" alt></p>
 <p>4字节（共4行）的DOS头，第一个成员2个字节是可执行文件的标志信息；最后一个成员4字节是PE头的偏移地址为00000100H，我们可以根据00000100H来获取PE头的地址。而DOS头和PE头中间的空余位置是一些垃圾值以及编译器填充的一些“is program cannot be run in DOS mode.”或“This program must be run under Win32”等信息。</p>
 <h3 id="NT头"><a href="#NT头" class="headerlink" title="NT头"></a>NT头</h3><p>NT头包含windows PE文件的主要信息，其中包括一个‘PE’字样的签名，PE文件头（IMAGE_FILE_HEADER）和PE可选头（IMAGE_OPTIONAL_HEADER32）。</p>
 <h3 id="节表"><a href="#节表" class="headerlink" title="节表"></a>节表</h3><p>节表：是PE文件后续节的描述，windows根据节表的描述加载每个节。<br>节：每个节实际上是一个容器，可以包含代码、数据等等，每个节可以有独立的内存权限，比如代码节默认有读/执行权限，节的名字和数量可以自己定义，未必是上图中的三个。</p>
 <h3 id="VA和RVA"><a href="#VA和RVA" class="headerlink" title="VA和RVA"></a>VA和RVA</h3><p>PE文件使用偏移(offset)，内存中使用VA(Virtual Address)来表示位置。<br>VA指虚拟内存的绝对地址，RVA(Relative Virtual Address，相对虚拟地址)是指从某基准位置(Image Base)开始的相对地址。<br>PE头内部信息大多是以RVA形式存在，原因在于PE文件(主要是DLL)加载到进程虚拟内存的特定位置时，该位置可能已经加载了其他PE文件(DLL)，此时必须通过重定向( Relocation)将其加载到其他空白的位置,若PE头信息使用的是VA,则无法正常访问。因此使用RVA来重定向信息,即使发生了重定向，只要相对于基准位置的相对位置没有变化，就能正常访问到指定信息，不会出现任何问题。<br>当PE文件被执行时，PE装载器会为进程分配4G的虚拟地址空间，然后把程序所占用的磁盘空间作为虚拟内存映射到这个4G的虚拟地址空间(ImageBase)中，一般情况下，会映射到虚拟地址空间中的0x400000的位置。<br>VA与RVA满足以下换算关系：<br><code>RVA+ImageBase=VA</code></p>
 <h2 id="0x02-PE头结构"><a href="#0x02-PE头结构" class="headerlink" title="0x02 PE头结构"></a>0x02 PE头结构</h2><ul>
 <li>PE头结构：DOS头+NT头<h3 id="DOS头（分Header和DOS存根）"><a href="#DOS头（分Header和DOS存根）" class="headerlink" title="DOS头（分Header和DOS存根）"></a>DOS头（分Header和DOS存根）</h3><blockquote>
-<p>Header结构(00000000 - 0000003F，共64个字节)<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/docker/pe3.png" alt></p>
+<p>Header结构(00000000 - 0000003F，共64个字节)<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pe3.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">typedef struct _IMAGE_DOS_HEADER &#123; // DOS的.EXE头部</span><br><span class="line">  USHORT e_magic;          // DOS签名“MZ--&gt;Mark Zbikowski（设计了DOS的工程师）” -&gt; 4D 5A </span><br><span class="line">  USHORT e_cblp;             // 文件最后页的字节数 -&gt; 00 90 -&gt; 144</span><br><span class="line">  USHORT e_cp;               // 文件页数 -&gt; 00 30 -&gt; 48</span><br><span class="line">  USHORT e_crlc;             // 重定义元素个数 -&gt; 00 00</span><br><span class="line">  USHORT e_cparhdr;       // 头部尺寸，以段落为单位 -&gt; 00 04</span><br><span class="line">  USHORT e_minalloc;      // 所需的最小附加段 -&gt; 00 00</span><br><span class="line">  USHORT e_maxalloc;     // 所需的最大附加段 -&gt; FF FF</span><br><span class="line">  USHORT e_ss;              // 初始的SS值（相对偏移量） -&gt; 00 00</span><br><span class="line">  USHORT e_sp;             // 初始的SP值 -&gt; 00 B8 -&gt; 184</span><br><span class="line">  USHORT e_csum;         // 校验和 -&gt; 00 00</span><br><span class="line">  USHORT e_ip;            // 初始的IP值 -&gt; 00 00</span><br><span class="line">  USHORT e_cs;            // 初始的CS值（相对偏移量） -&gt; 00 00</span><br><span class="line">  USHORT e_lfarlc;        // 重分配表文件地址 -&gt; 00 40 -&gt; 64</span><br><span class="line">  USHORT e_ovno;        // 覆盖号 -&gt; 00 00</span><br><span class="line">  USHORT e_res[4];      // 保留字 -&gt; 00 00 00 00 00 00 00 00</span><br><span class="line">  USHORT e_oemid;     // OEM标识符（相对e_oeminfo） -&gt; 00 00</span><br><span class="line">  USHORT e_oeminfo;   // OEM信息 -&gt; 00 00</span><br><span class="line">  USHORT e_res2[10];  // 保留字 -&gt; 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 </span><br><span class="line">  LONG e_lfanew;       // 指示NT头的偏移（根据不同文件拥有可变值） -&gt; 00 00 00 C0 -&gt; 192&apos;</span><br><span class="line">  &#125; IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
@@ -679,18 +679,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/22/Docker入门总结/" rel="prev" title="Docker入门总结">
-                 <i class="fa fa-chevron-left"></i> Docker入门总结
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/11/22/sql注入总结/" rel="next" title="Sql注入总结">
-                Sql注入总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/22/Docker入门总结/" rel="next" title="Docker入门总结">
+                Docker入门总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

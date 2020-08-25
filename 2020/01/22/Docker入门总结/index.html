@@ -158,11 +158,11 @@
 <meta property="og:url" content="http://bleaner.club/2020/01/22/Docker入门总结/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png">
-<meta property="og:updated_time" content="2020-03-17T12:05:47.179Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/docker1.png">
+<meta property="og:updated_time" content="2020-08-25T05:46:22.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker入门总结">
-<meta name="twitter:image" content="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/docker1.png">
 
 
 
@@ -501,7 +501,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-17 20:05:47" itemprop="dateModified" datetime="2020-03-17T20:05:47+08:00">2020-03-17</time>
+                <time title="修改时间：2020-08-25 13:46:22" itemprop="dateModified" datetime="2020-08-25T13:46:22+08:00">2020-08-25</time>
               
             
           </span>
@@ -582,7 +582,7 @@
 </ul>
 <h2 id="和虚拟机的比较"><a href="#和虚拟机的比较" class="headerlink" title="和虚拟机的比较"></a>和虚拟机的比较</h2><p>简单来说： 容器和虚拟机具有相似的资源隔离和分配优势，但功能有所不同，因为容器虚拟化的是操作系统，而不是硬件，因此容器更容易移植，效率也更高。</p>
 <p>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；而容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。</p>
-<p>两者的对比图：<br><img src="http://q7bvs3hjk.bkt.clouddn.com/static/images/blog/docker1.png" alt></p>
+<p>两者的对比图：<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/docker1.png" alt></p>
 <ul>
 <li>容器是一个应用层抽象，用于将代码和依赖资源打包在一起。 多个容器可以在同一台机器上运行，共享操作系统内核，但各自作为独立的进程在用户空间中运行 。与虚拟机相比， 容器占用的空间较少（容器镜像大小通常只有几十兆），瞬间就能完成启动 。</li>
 <li>虚拟机（VM）是一个物理硬件层抽象，用于将一台服务器变成多台服务器。 管理程序允许多个VM在一台机器上运行。每个VM都包含一整套操作系统、一个或多个应用、必要的二进制文件和库资源，因此占用大量空间。而且VM启动也十分缓慢 。</li>
@@ -608,13 +608,7 @@
 <h2 id="Docker的安装"><a href="#Docker的安装" class="headerlink" title="Docker的安装"></a>Docker的安装</h2><p>可以参考官方文档以获取最新的Docker支持情况，官方文档：<br><code>https://docs.docker.com/install/</code></p>
 <p>Docker分为CE和EE两个版本，CE即社区版，免费；EE即企业版，付费使用。<br>Docker的安装参考官方文档：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MacOS：https://docs.docker.com/docker-for-mac/install/</span><br><span class="line">Windows：https://docs.docker.com/docker-for-windows/install/</span><br><span class="line">Ubuntu：https://docs.docker.com/install/linux/docker-ce/ubuntu/</span><br><span class="line">Debian：https://docs.docker.com/install/linux/docker-ce/debian/</span><br><span class="line">CentOS：https://docs.docker.com/install/linux/docker-ce/centos/</span><br><span class="line">Fedora：https://docs.docker.com/install/linux/docker-ce/fedora/</span><br><span class="line">其他 Linux 发行版：https://docs.docker.com/install/linux/docker-ce/binaries/</span><br></pre></td></tr></table></figure>
-<p>官方文档的安装方式是最靠谱的,但是在国内墙是硬伤…</p>
-<p>我的实验环境是Ubuntu 18.04 64，2核4GB ECS服务器</p>
-<p>首先，卸载旧版本，Ubuntu的旧版本称为 docker，docker.io 或 docker.engine(通过apt安装的为旧版本，建议新版)。<br><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc</code></p>
-<p>在新主机上首次安装Docker Engine-Community之前，需要设置Docker存储库。之后，可以从存储库安装和更新Docker。</p>
-<p>设置存储库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//更新apt包索引</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">//安装软件包以允许apt通过HTTPS使用存储库</span><br><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line">//添加Docker的官方GPG密钥（我用的是阿里内网开源镜像站源）：</span><br><span class="line">$ curl -fsSL https://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">$ sudo add-apt-repository \</span><br><span class="line">&quot;deb [arch=amd64] http://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu \</span><br><span class="line">$(lsb_release -cs) \</span><br><span class="line">stable&quot;</span><br></pre></td></tr></table></figure></p>
-<p>安装Docker CE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line"></span><br><span class="line">//安装最新版docker CE和containerd，或者采用下面的方式安装指定版本</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line">//$ apt-cache madison docker-ce</span><br><span class="line"></span><br><span class="line">//$ sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io</span><br></pre></td></tr></table></figure>
+<p>也可以直接使用包管理安装…(懒人专用</p>
 <h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><p>我们可以通过 docker -h 去查看命令的详细的帮助文档。在这里我只列出一些平常我们可能会用的比较多的一些命令。</p>
 <p>首先，我们需要开启docker服务：</p>
 <p><code>service docker start</code></p>
@@ -639,6 +633,7 @@
 <p><code>docker rm container_name/container_id</code></p>
 <p>然后这个时候我们再去删除这个镜像：</p>
 <p><code>docker rmi image_name</code></p>
+<p>可以使用<code>docker inspect container_id</code>查看更底层的配置</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="&quot;http://dockone.io/article/8350&quot;">这可能是最为详细的Docker入门总结</a></li>
 <li><a href="&quot;https://docs.docker.com/install/&quot;">Docker官方文档</a></li>
@@ -712,8 +707,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/22/pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写/" rel="prev" title="pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写">
-                 <i class="fa fa-chevron-left"></i> pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写
+              <a href="/2020/01/22/PE文件结构(一)/" rel="prev" title="PE文件结构(一)">
+                 <i class="fa fa-chevron-left"></i> PE文件结构(一)
               </a>
             
           </div>
@@ -722,8 +717,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/22/PE文件结构(一)/" rel="next" title="PE文件结构(一)">
-                PE文件结构(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/22/pwn入门学习(一）—— 环境搭建/" rel="next" title="pwn入门学习(一）—— 环境搭建">
+                pwn入门学习(一）—— 环境搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
