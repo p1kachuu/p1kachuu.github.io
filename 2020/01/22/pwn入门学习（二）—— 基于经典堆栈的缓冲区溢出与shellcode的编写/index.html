@@ -152,18 +152,18 @@
 
 
 
-  <meta name="keywords" content="二进制,linux">
+  <meta name="keywords" content="linux,二进制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写">
 <meta property="og:url" content="http://bleaner.club/2020/01/22/pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pwn1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pwn2.png">
-<meta property="og:updated_time" content="2020-08-25T05:48:56.876Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/pwn1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/pwn2.png">
+<meta property="og:updated_time" content="2020-08-25T06:04:24.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pwn入门学习（二）—— 基于经典堆栈的缓冲区溢出与shellcode的编写">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pwn1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/pwn1.png">
 
 
 
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-25 13:48:56" itemprop="dateModified" datetime="2020-08-25T13:48:56+08:00">2020-08-25</time>
+                <time title="修改时间：2020-08-25 14:04:24" itemprop="dateModified" datetime="2020-08-25T14:04:24+08:00">2020-08-25</time>
               
             
           </span>
@@ -583,7 +583,7 @@
 <blockquote>
 <p>2.函数调用栈的相关知识</p>
 </blockquote>
-<p>函数调用栈是指程序运行时内存一段连续的区域，用来保存函数运行时的状态信息，包括函数参数与局部变量等。称之为“栈”是因为发生函数调用时，调用函数（caller）的状态被保存在栈内，被调用函数（callee）的状态被压入调用栈的栈顶；在函数调用结束时，栈顶的函数（callee）状态被弹出，栈顶恢复到调用函数（caller）的状态。函数调用栈在内存中从高地址向低地址生长，所以栈顶对应的内存地址在压栈时变小，退栈时变大。<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pwn1.png" alt></p>
+<p>函数调用栈是指程序运行时内存一段连续的区域，用来保存函数运行时的状态信息，包括函数参数与局部变量等。称之为“栈”是因为发生函数调用时，调用函数（caller）的状态被保存在栈内，被调用函数（callee）的状态被压入调用栈的栈顶；在函数调用结束时，栈顶的函数（callee）状态被弹出，栈顶恢复到调用函数（caller）的状态。函数调用栈在内存中从高地址向低地址生长，所以栈顶对应的内存地址在压栈时变小，退栈时变大。<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/pwn1.png" alt></p>
 <p>函数状态主要涉及三个寄存器－－rsp，rbp，rip。rsp 用来存储函数调用栈的栈顶地址，在压栈和退栈时发生变化。rbp 用来存储当前函数状态的基地址，在函数运行时不变，可以用来索引确定函数参数或局部变量的位置。rip 用来存储即将执行的程序指令的地址，cpu 依照 rip 的存储内容读取指令并执行，rip 随之指向相邻的下一条指令，如此反复，程序就得以连续执行指令。</p>
 <blockquote>
 <p>3.不安全的函数</p>
@@ -597,7 +597,7 @@
 <h2 id="0x02-寻找溢出点，计算返回地址"><a href="#0x02-寻找溢出点，计算返回地址" class="headerlink" title="0x02 寻找溢出点，计算返回地址"></a>0x02 寻找溢出点，计算返回地址</h2><p>看一下main函数的反汇编：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble main</span><br><span class="line">Dump of assembler code for function main:</span><br><span class="line">   0x0000000000001145 &lt;+0&gt;:     push   %rbp</span><br><span class="line">   0x0000000000001146 &lt;+1&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0x0000000000001149 &lt;+4&gt;:     sub    $0x110,%rsp</span><br><span class="line">   0x0000000000001150 &lt;+11&gt;:    mov    %edi,-0x104(%rbp)</span><br><span class="line">   0x0000000000001156 &lt;+17&gt;:    mov    %rsi,-0x110(%rbp)</span><br><span class="line">   0x000000000000115d &lt;+24&gt;:    mov    -0x110(%rbp),%rax</span><br><span class="line">   0x0000000000001164 &lt;+31&gt;:    add    $0x8,%rax</span><br><span class="line">   0x0000000000001168 &lt;+35&gt;:    mov    (%rax),%rdx</span><br><span class="line">   0x000000000000116b &lt;+38&gt;:    lea    -0x100(%rbp),%rax</span><br><span class="line">   0x0000000000001172 &lt;+45&gt;:    mov    %rdx,%rsi</span><br><span class="line">   0x0000000000001175 &lt;+48&gt;:    mov    %rax,%rdi</span><br><span class="line">   0x0000000000001178 &lt;+51&gt;:    callq  0x1030 &lt;strcpy@plt&gt;</span><br><span class="line">   0x000000000000117d &lt;+56&gt;:    lea    -0x100(%rbp),%rax</span><br><span class="line">   0x0000000000001184 &lt;+63&gt;:    mov    %rax,%rsi</span><br><span class="line">   0x0000000000001187 &lt;+66&gt;:    lea    0xe76(%rip),%rdi        # 0x2004</span><br><span class="line">   0x000000000000118e &lt;+73&gt;:    mov    $0x0,%eax</span><br><span class="line">   0x0000000000001193 &lt;+78&gt;:    callq  0x1040 &lt;printf@plt&gt;</span><br><span class="line">   0x0000000000001198 &lt;+83&gt;:    mov    $0x0,%eax</span><br><span class="line">   0x000000000000119d &lt;+88&gt;:    leaveq </span><br><span class="line">   0x000000000000119e &lt;+89&gt;:    retq   </span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure></p>
 <p>注意，buf的地址不一定使从$rsp指向的位置开始的，源代码中申请了256个字节的栈空间，但编辑器分配了0x110=272自己二(指令地址 0x001149)<br>先看指令地址 0x001175: 根据调用规约，strcpy函数的第一个参数由$rdi传递，$rdi的值来自$rax<br>再看指令地址 0x00116b: $rax的值是$rbp-0x100, 即buf的地址并不是从$rsp开始，而是从$rsp向上16字节开始。<br>这是一个重要的细节，他将直接影响后面对return_addr位置的计算。</p>
 <p>通过buf的地址，再结合反汇编，即可推测出return_addr的位置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/pwn2.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/pwn2.png" alt></p>
 <p>图中很容易看出，return_addr的位置在buf+256+8处，即只需要把buf+264后面的8个字节写上shellcode的地址。</p>
 <p>那么return_addr里面具体要填多少呢？<br>因为没有了地址随机化，每次buf的地址是固定的，给buf传递272个字节，看看他的地址是多少。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop# ./vuln `python -c &quot;print(&apos;a&apos;*272)&quot;`</span><br><span class="line">Input:0x7fffffffdf70</span><br><span class="line">段错误</span><br></pre></td></tr></table></figure></p>
 <p>OK，我们拿到了buf的运行时的地址：0x7fffffffdf70，这个地址就是要硬编码到shellcode中的返回地址。</p>
@@ -678,9 +678,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/二进制/" rel="tag"><i class="fa fa-tag"></i>二进制</a>
-          
             <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i>linux</a>
+          
+            <a href="/tags/二进制/" rel="tag"><i class="fa fa-tag"></i>二进制</a>
           
         </div>
       
@@ -693,8 +693,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/22/pwn入门学习(一）—— 环境搭建/" rel="prev" title="pwn入门学习(一）—— 环境搭建">
-                 <i class="fa fa-chevron-left"></i> pwn入门学习(一）—— 环境搭建
+              <a href="/2020/01/22/PE文件结构(一)/" rel="prev" title="PE文件结构(一)">
+                 <i class="fa fa-chevron-left"></i> PE文件结构(一)
               </a>
             
           </div>

